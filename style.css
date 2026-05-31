@@ -5,14 +5,15 @@
 }
 
 :root {
-  --bg: #F5F0E8;
-  --bg-2: #EDE6D8;
-  --text: #1C1814;
-  --text-muted: #7A6E5F;
-  --accent: #8B4513;
-  --rule: #D4CCBE;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --bg: #000000;
+  --surface: #1a1a1a;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-soft: rgba(255, 255, 255, 0.8);
+  --rule: rgba(255, 255, 255, 0.1);
+  --font-serif: ui-serif, 'New York', Georgia, serif;
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Courier New', monospace;
 }
 
 html {
@@ -24,20 +25,9 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-serif);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 9999;
 }
 
 a {
@@ -51,59 +41,56 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2.5rem 5rem;
+  padding: 2rem 4rem;
 }
 
 .wordmark {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.22em;
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--text);
-  text-transform: uppercase;
 }
 
 nav a {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
   color: var(--text-muted);
   transition: color 0.2s;
 }
 
 nav a:hover {
-  color: var(--accent);
+  color: var(--text);
 }
 
 /* ── Hero ─────────────────────────────────────────── */
 
 .hero {
-  padding: 8rem 5rem 10rem;
-  max-width: 900px;
+  padding: 8rem 4rem 10rem;
+  max-width: 860px;
 }
 
 .hero h1 {
   font-family: var(--font-serif);
   font-size: clamp(3.5rem, 7.5vw, 6.5rem);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.08;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--text);
   margin-bottom: 3rem;
 }
 
 .hero h1 em {
   font-style: italic;
-  color: var(--accent);
 }
 
 .lead {
   font-family: var(--font-serif);
   font-size: 1.15rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  line-height: 1.8;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.75;
   margin-bottom: 3.5rem;
   max-width: 480px;
 }
@@ -112,7 +99,7 @@ nav a:hover {
 
 .cta-group {
   display: flex;
-  gap: 1.25rem;
+  gap: 1rem;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -120,26 +107,25 @@ nav a:hover {
 .btn {
   display: inline-flex;
   align-items: center;
-  padding: 0.85rem 2.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
   font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: 0;
+  letter-spacing: 0;
+  border-radius: 100px;
   transition: all 0.2s;
   cursor: pointer;
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: var(--text);
   color: var(--bg);
-  border: 1px solid var(--accent);
+  border: 1px solid var(--text);
 }
 
 .btn-primary:hover {
-  background: #7a3b10;
-  border-color: #7a3b10;
+  background: var(--text-soft);
+  border-color: var(--text-soft);
 }
 
 .btn-ghost {
@@ -149,14 +135,14 @@ nav a:hover {
 }
 
 .btn-ghost:hover {
-  border-color: var(--text-muted);
+  border-color: rgba(255, 255, 255, 0.3);
   color: var(--text);
 }
 
 /* ── Divider ──────────────────────────────────────── */
 
 .divider-section {
-  padding: 0 5rem;
+  padding: 0 4rem;
 }
 
 .rule {
@@ -167,7 +153,7 @@ nav a:hover {
 /* ── Editorial ────────────────────────────────────── */
 
 .editorial {
-  padding: 8rem 5rem;
+  padding: 8rem 4rem;
 }
 
 .editorial-inner {
@@ -179,17 +165,16 @@ nav a:hover {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   font-style: italic;
-  letter-spacing: 0.01em;
   color: var(--text);
   margin-bottom: 2.5rem;
 }
 
 .editorial p {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: 300;
+  font-size: 1.05rem;
+  font-weight: 400;
   line-height: 1.9;
-  color: var(--text-muted);
+  color: var(--text);
   margin-bottom: 1.6rem;
 }
 
@@ -200,7 +185,7 @@ nav a:hover {
 /* ── Principles ───────────────────────────────────── */
 
 .principles {
-  padding: 8rem 5rem;
+  padding: 8rem 4rem;
 }
 
 .principles h2 {
@@ -208,7 +193,6 @@ nav a:hover {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   font-style: italic;
-  letter-spacing: 0.01em;
   color: var(--text);
   margin-bottom: 4rem;
 }
@@ -229,35 +213,33 @@ nav a:hover {
 .principle-num {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: var(--accent);
+  color: var(--text-muted);
   letter-spacing: 0.05em;
   padding-top: 0.4rem;
   min-width: 2rem;
-  opacity: 0.8;
   flex-shrink: 0;
 }
 
 .principle h3 {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--text);
   margin-bottom: 0.6rem;
-  letter-spacing: 0.02em;
 }
 
 .principle p {
   font-family: var(--font-serif);
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.85;
-  color: var(--text-muted);
+  color: var(--text);
 }
 
 /* ── Closing ──────────────────────────────────────── */
 
 .closing {
-  padding: 8rem 5rem 10rem;
+  padding: 8rem 4rem 10rem;
   text-align: center;
 }
 
@@ -265,8 +247,8 @@ nav a:hover {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-weight: 300;
-  color: var(--text-muted);
+  font-weight: 400;
+  color: var(--text);
   line-height: 1.55;
   margin-bottom: 3.5rem;
 }
@@ -278,43 +260,43 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  padding: 2rem 5rem;
+  padding: 2rem 4rem;
   border-top: 1px solid var(--rule);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
   color: var(--text-muted);
-  letter-spacing: 0.04em;
 }
 
 footer a:hover {
-  color: var(--accent);
+  color: var(--text);
 }
 
 .footer-sep {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 /* ── Responsive ───────────────────────────────────── */
 
 @media (max-width: 640px) {
   header {
-    padding: 1.75rem 1.75rem;
+    padding: 1.5rem 1.5rem;
   }
 
   .hero {
-    padding: 5rem 1.75rem 6rem;
+    padding: 5rem 1.5rem 6rem;
   }
 
   .divider-section,
   .editorial,
   .principles,
   .closing {
-    padding-left: 1.75rem;
-    padding-right: 1.75rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   footer {
-    padding: 2rem 1.75rem;
+    padding: 2rem 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
